@@ -2,6 +2,9 @@ body {
   padding-top: 50px;
 }
 
+.navbar-inverse .navbar-brand a {
+	color: #F92672;
+}
 .jumbotron {
 	padding-top: 200px;
 	padding-bottom: 200px;
@@ -9,6 +12,10 @@ body {
 	background-image: url("assets/images/landing_graphic.png");
 	background-size: 100%;
 }
+
+/*.jumbotron h1 {
+	color: #F92672;
+}*/
 
 @media (max-width: 600px) {
   .jumbotron {
