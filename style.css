@@ -79,3 +79,15 @@ p {
   margin: 5px;
   color: #FFFFFF;
 }
+
+.image-row {
+  margin: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+  .image-row {
+    margin: auto;
+    white-space: normal;
+  }
+}
