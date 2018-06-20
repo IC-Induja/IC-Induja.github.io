@@ -1,169 +1,283 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <link rel="icon" href="favicon.ico">
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Induja Chandrakumar</title>
+  <!-- Site Properties -->
+  <title>Homepage - Semantic</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    .hidden.menu {
+      display: none;
+    }
 
-    <!-- Custom styles for this template -->
-    <link href="style.css" rel="stylesheet">
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
 
-  </head>
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
 
-  <body>
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Induja Chandrakumar</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="Resume_Computer_Science.pdf">Resume</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+
+  </style>
+
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+  <script src="../dist/components/sidebar.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
+</head>
+<body>
+
+<!-- Following Menu -->
+<!-- <div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="active item">Home</a>
+    <a class="item">Work</a>
+    <a class="item">Company</a>
+    <a class="item">Careers</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui button">Log in</a>
       </div>
-    </nav>
+      <div class="item">
+        <a class="ui primary button">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div> -->
 
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Induja Chandrakumar</h1>
-        <p><b>Developer, Bioinformatician, Aspiring Researcher</b></p>
-        <div class="row">
-          <a href="#projects"><button type="button" class="btn btn-default">Software</button></a>
-          <a href="#research"><button type="button" class="btn btn-default">Research</button></a>
+<!-- Sidebar Menu -->
+<!-- <div class="ui vertical inverted sidebar menu">
+  <a class="active item">Home</a>
+  <a class="item">Work</a>
+  <a class="item">Company</a>
+  <a class="item">Careers</a>
+  <a class="item">Login</a>
+  <a class="item">Signup</a>
+</div> -->
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <!-- <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a class="item">Work</a>
+        <a class="item">Company</a>
+        <a class="item">Careers</a>
+        <div class="right item">
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        introspection.io
+      </h1>
+      <h2>Genomics. Made actually enjoyable.</h2>
+      <div class="text">Alpha parterships now open. Contact us at info@introspection.io</div>
+    </div>
+
+  </div>
+
+  <!-- <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">We Help Companies and Companions</h3>
+          <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+          <h3 class="ui header">We Make Bananas That Can Dance</h3>
+          <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button">Check Them Out</a>
         </div>
       </div>
     </div>
+  </div>
 
-    
-    <a name="about"></a>
-    <div class="container page-section" id="about">
-      <div class="page-header"> 
-        <h1>About</h1>
-      </div>
-      <p>I'm a student at the University of Waterloo pursuing degrees in both Computer Science and Biology. I'm passionate about programming to make sense of large datasets and to solve real-world problems. My work so far has been primarily in bioinformatics, specifically whole-genome analysis, but I'm always open to learning new technologies and applying my skills to new challenges and datasets. I also dabble a bit in indie game development.</p>
-      <p>I'm actively looking for co-op opportunites and for interesting projects projects to get involved with.</p>
-      <a name="projects"></a>
-    </div>
 
-    <div class="container page-section" id="projects">
-      <div class="page-header"> 
-        <h1>Projects</h1>
-      </div>
-      <div class="showcase-content">
-        <div class="row showcase-content-row">
-          <div class="col-md-6">
-            <h2>Hour of Regex</h2>
-            <p>Learn the basics of Regular Expressions interactively in under an hour!<br>This app is inspired by the Hour of Code movement. It has 4500+ active users in over 85 countries, and is 100% open source!</p>
-            <p>Implemented using Java, Regex, and the Android Framework</p>
-            <p>Available on the <a href="https://play.google.com/store/apps/details?id=ca.induja.hourofregex&hl=en">Google Play Store</a></p>
-            <p>Check out the code on <a href="https://github.com/IC-Induja/Hour-of-Regex">GitHub</a></p>
-          </div>
-          <div class="col-md-6 image-row">
-            <img src="assets/images/hourofregex/regex_screenshot2.PNG">
-            <img src="assets/images/hourofregex/regex_screenshot1.PNG">
-            <img src="assets/images/hourofregex/regex_screenshot3.PNG">
-          </div>
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class="center aligned row">
+        <div class="column">
+          <h3>"What a Company"</h3>
+          <p>That is what they all say about us</p>
         </div>
-        <div class="row showcase-content-row">
-          <div class="col-md-6">
-            <h2>Triangle Tetris</h2>
-            <p>My own personal take on Tetris, with rotating triangles instead of blocks. My first venture into object-oriented programming.</p>
-            <p>Implemented using Java Swing</p>
-          </div>
-          <div class="col-md-6 image-row">
-              <img src="assets/images/triangletetris/tetris_mockup2.png">
-              <img src="assets/images/triangletetris/tetris_mockup1.png">
-              <img src="assets/images/triangletetris/tetris_mockup3.png">
-          </div>
-        </div>
-        <div class="row showcase-content-row">
-          <div class="col-md-6">
-            <h2>The Lemonade Stand</h2>
-            <p>The website for a school literary journal, made back in high school.
-          </div>
-          <div class="col-md-6">
-            <img src="assets/images/lemonade_stand_screenshot.PNG">
-          </div>
+        <div class="column">
+          <h3>"I shouldn't have gone with their competitor."</h3>
+          <p>
+            <img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="container page-section" id="research">
-      <div class="page-header">
-        <h1>Research</h1>
-      </div>
-        <h2>Wet Lab Experience</h2>
-        <p>Working as a research assistant in the Lolle Lab at the University of Waterloo, I've gained experience with some fundamental plant and molecular biology techniques including:</p>
-        <ul>
-          <li>preparing DNA minipreps</li>
-          <li>gel electrophoresis</li>
-          <li>running PCR reactions</li>
-          <li>perfoming crosses of different plant lines</li>
-        </ul>
-        <h2>Bioinformatics</h2>
-        <img src="assets/images/research/annotated_website_tree.PNG" id="tree"/>
-        <h3>Project Description</h3>
-        <p>The tree above depicts the evolutionary relationships of 17 ecotypes of Arabidopsis thaliana from locations across the northern hemisphere. I constructed it by creating seperate alignments of over 100 genes and and concatenating them, then using PhyML. Building this tree was the first step for my research in the Doxey Lab at the University of Waterloo, where I was interested in seeing if various insertions and deletions in the Arabidopsis genome formed monophyletic groups.<br/><br/>Using the same sequences, various large indels were mapped to the tree. The distribution of these insertions and deletions was often paraphyletic, as opposed to being localized in one clade of the tree, as was expected. For example, the yellow highlights on the tree above point out accessions of Arabidopsis that have a similar sized deletion, between 300 and 375 bp, at the same loci on Chromosome 4, on the Frigida gene, which ensures the plant goes through a cold period between successive flowerings. The plants with the deletion are throughly spread out on the tree, however it is likely the actual removal of DNA from the sequence occured only once, due to the similarity in size and loci for each sequence variant.</p>
-        <h3>Skills Aquired</h3>
-        <p>My work with Professor Doxey has given my exposure to</p>
-        <ul>
-         <li>searching for sequences and information in the NCBI database and others like it</li>
-         <li>using software and considering various models to construct multiple sequence alignments and phylogenetic trees</li>
-         <li>writing short bash scripts and larger C++ programs to clean data and convert it to the desired format for a particular program</li>
-         <li>performing quantitative analysis of data using R, Python, and Bash</li>
-        </ul>
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
+      <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
+      <a class="ui large button">Read More</a>
+      <h4 class="ui horizontal header divider">
+        <a href="#">Case Studies</a>
+      </h4>
+      <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
+      <p>Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
+      <a class="ui large button">I'm Still Quite Interested</a>
     </div>
+  </div>
 
-    <div class="container page-section" id="contact">
-      <div class="page-header">
-        <h1>Contact</h1>
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sitemap</a>
+            <a href="#" class="item">Contact Us</a>
+            <a href="#" class="item">Religious Ceremonies</a>
+            <a href="#" class="item">Gazebo Plans</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Banana Pre-Order</a>
+            <a href="#" class="item">DNA FAQ</a>
+            <a href="#" class="item">How To Access</a>
+            <a href="#" class="item">Favorite X-Men</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
       </div>
-      <p>Thanks for visiting!<br>You can contact me at: ic.induja@gmail.com</p>
-      <p>Check out my GitHub <a href="https://github.com/IC-Induja">here</a>.</p>
     </div>
+  </div> -->
+</div>
 
-    <!--<div class="container">
+</body>
 
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-
-    </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="script.js"></script>
-  </body>
 </html>
